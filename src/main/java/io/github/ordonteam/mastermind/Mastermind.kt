@@ -2,7 +2,7 @@ package io.github.ordonteam.mastermind
 
 data class MastermindGame(
     val config: Config,
-    val state: List<Guess>
+    val state: List<Guess> = emptyList()
 )
 
 data class Config(
