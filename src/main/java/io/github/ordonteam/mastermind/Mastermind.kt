@@ -14,7 +14,7 @@ data class Config(
 
 data class Guess(
     val colors: List<Int>,
-    val answer: Answer?
+    val answer: Answer? = null
 )
 
 data class Answer(
