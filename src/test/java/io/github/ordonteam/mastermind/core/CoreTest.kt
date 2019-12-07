@@ -14,4 +14,10 @@ class CoreTest {
             println("${it.colors} ${it.answer}")
         }
     }
+
+    @Test
+    fun shouldPlayManyGame() {
+        val scores = Core().playManyGames(SimpleGuesser(), SimpleAnswerer(SequenceVault(Random.nextLong())))
+        println("${scores.sumBy { it.state.size }} / ${scores.size}")
+    }
 }
