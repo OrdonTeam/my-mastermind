@@ -4,17 +4,11 @@ import io.github.ordonteam.mastermind.Answerer
 import io.github.ordonteam.mastermind.Config
 import io.github.ordonteam.mastermind.Guesser
 import io.github.ordonteam.mastermind.MastermindGame
-import io.github.ordonteam.mastermind.answerer.SimpleAnswerer
-import io.github.ordonteam.mastermind.guesser.SimpleGuesser
 import java.util.*
 
 class Core {
 
-    fun playManyGames(
-        guesser: SimpleGuesser,
-        answerer: SimpleAnswerer,
-        numberOfGamesToPlay: Int = 1000
-    ): List<MastermindGame> {
+    fun playManyGames(guesser: Guesser, answerer: Answerer, numberOfGamesToPlay: Int = 1000): List<MastermindGame> {
         return (1..numberOfGamesToPlay).map {
             playGame(guesser, answerer)
         }
