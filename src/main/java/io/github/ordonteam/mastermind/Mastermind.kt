@@ -3,7 +3,16 @@ package io.github.ordonteam.mastermind
 data class MastermindGame(
     val config: Config,
     val state: List<Guess> = emptyList()
-)
+) {
+    fun setAnswer(answer: Answer): MastermindGame {
+        val nextState = state.dropLast(1) + state.last().copy(answer = answer)
+        return copy(state = nextState)
+    }
+
+    fun setGuess(guess: Guess): MastermindGame {
+        return copy(state = state + guess)
+    }
+}
 
 data class Config(
     val id: String,

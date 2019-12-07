@@ -14,7 +14,7 @@ class SimpleAnswerer(
     override fun answer(game: MastermindGame): MastermindGame {
         val sequence = sequenceProvider.apply(game)
         val answer = getStraitAnswer(sequence, game.state.last().colors)
-        return setAnswer(game, answer)
+        return game.setAnswer(answer)
     }
 
     private fun getStraitAnswer(sequence: List<Int>, guess: List<Int>): Answer {
@@ -27,14 +27,6 @@ class SimpleAnswerer(
             min(sequenceGrouped[it]?.size ?: 0, guessGrouped[it]?.size ?: 0)
         }
         return Answer(matchedColors - matchedPlace, matchedPlace)
-    }
-
-    private fun setAnswer(game: MastermindGame, answer: Answer): MastermindGame {
-        return game.copy(state = setAnswer(game.state, answer))
-    }
-
-    private fun setAnswer(state: List<Guess>, answer: Answer): List<Guess> {
-        return state.dropLast(1) + state.last().copy(answer = answer)
     }
 }
 

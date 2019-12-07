@@ -6,7 +6,8 @@ import java.lang.Integer.min
 class SimpleGuesser : Guesser {
 
     override fun guess(game: MastermindGame): MastermindGame {
-        return game.copy(state = game.state + Guess(possibleSequences(game).random(), null))
+        val guess = Guess(possibleSequences(game).random())
+        return game.setGuess(guess)
     }
 
     fun possibleSequences(game: MastermindGame): List<List<Int>> {

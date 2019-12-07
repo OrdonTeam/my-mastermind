@@ -15,4 +15,5 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     testImplementation("junit:junit:4.12")
     testImplementation("org.easytesting:fest-assert-core:2.0M10")
+    testImplementation("com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0")
 }

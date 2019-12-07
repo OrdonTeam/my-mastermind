@@ -6,12 +6,11 @@ import io.github.ordonteam.mastermind.guesser.SimpleGuesser
 import org.junit.Test
 import kotlin.random.Random
 
-class CoreTest {
+class DuelTest {
+
     @Test
-    fun shouldPlayGame() {
-        val game = Core().playGame(SimpleGuesser(), SimpleAnswerer(SequenceVault(Random.nextLong())))
-        game.state.forEach {
-            println("${it.colors} ${it.answer}")
-        }
+    fun duelSimpleGuesserVsSimpleAnswerer() {
+        val scores = Core().playManyGames(SimpleGuesser(), SimpleAnswerer(SequenceVault(Random.nextLong())))
+        println("${scores.sumBy { it.state.size }} / ${scores.size}")
     }
 }
